@@ -1,8 +1,11 @@
 import React, { useLayoutEffect } from "react";
 import { Container, Row, Col } from "react-grid-system";
 import AppStyles from "./AppStyles";
+import { BrowserRouter, Link } from "react-router-dom";
+import AppRoutes from "./routes";
 
 //components
+import Layout from "./components/Layout";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -14,17 +17,23 @@ function App() {
   }, [classes.body]);
 
   return (
-    <Container fluid>
-      <Row justify="center">
-        <Col md={6}>
-          <div className={classes.mainContainer}>
-            <Header title="Task Manager" />
-            <div>Content</div>
-            <Footer />
-          </div>
-        </Col>
-      </Row>
-    </Container>
+    <BrowserRouter>
+      <Container fluid>
+        <Row justify="center">
+          <Col md={6}>
+            <Layout>
+              <Header title="Task Manager" />
+              <Link to={"/users"}>All</Link>
+              <Link to={"/users/new"}>New</Link>
+              <div>
+                <AppRoutes />
+              </div>
+              <Footer />
+            </Layout>
+          </Col>
+        </Row>
+      </Container>
+    </BrowserRouter>
   );
 }
 

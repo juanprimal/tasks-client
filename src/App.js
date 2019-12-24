@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useLayoutEffect } from "react";
+import { Container, Row, Col } from "react-grid-system";
+import AppStyles from "./AppStyles";
+
+//components
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
+  const classes = AppStyles();
+  // add global body styles
+  useLayoutEffect(() => {
+    document.body.className = classes.body;
+  }, [classes.body]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container fluid>
+      <Row justify="center">
+        <Col md={6}>
+          <div className={classes.mainContainer}>
+            <Header title="Task Manager" />
+            <div>Content</div>
+            <Footer />
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

@@ -48,7 +48,7 @@ export default function Header({
 Header.propTypes = {
   title: PropTypes.string,
   showLink: PropTypes.string,
-  showButton: PropTypes.string,
+  showButton: PropTypes.bool,
   editLink: PropTypes.string,
   onClick: PropTypes.func,
   todo: PropTypes.bool

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import UserForm from "components/UserForm";
+import Header from "components/Header";
 import { getUser, updateUser } from "api/usersApi";
 
 export default function UsersEdit() {
@@ -24,6 +25,13 @@ export default function UsersEdit() {
   };
 
   return (
-    <div>{user && <UserForm onSubmit={handleUpdateUser} user={user} />}</div>
+    <div>
+      {user && (
+        <>
+          <Header title={`Edit: ${user.name}`} backRoute={`/users`} />
+          <UserForm onSubmit={handleUpdateUser} user={user} visible />
+        </>
+      )}
+    </div>
   );
 }

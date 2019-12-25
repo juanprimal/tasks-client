@@ -1,12 +1,11 @@
 import React, { useLayoutEffect } from "react";
 import { Container, Row, Col } from "react-grid-system";
 import AppStyles from "./AppStyles";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes";
 
 //components
 import Layout from "./components/Layout";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 function App() {
@@ -20,13 +19,9 @@ function App() {
     <BrowserRouter>
       <Container fluid>
         <Row justify="center">
-          <Col md={6}>
+          <Col md={7}>
             <Layout>
-              <Header title="Task Manager" />
-              <Link to={"/users"}>Home</Link>
-              <div>
-                <AppRoutes />
-              </div>
+              <AppRoutes />
               <Footer />
             </Layout>
           </Col>

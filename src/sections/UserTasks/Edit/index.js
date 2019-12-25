@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import UserTaskForm from "components/UserTaskForm";
+import Header from "components/Header";
 import { getUserTask, updateUserTask } from "api/userTasksApi";
 
 export default function UsersEdit() {
@@ -24,10 +25,14 @@ export default function UsersEdit() {
   };
 
   return (
-    <div>
-      {userTask && (
-        <UserTaskForm onSubmit={handleUpdateUserTask} task={userTask} />
-      )}
-    </div>
+    userTask && (
+      <div>
+        <Header
+          title={`Edit: ${userTask.description}`}
+          backRoute={`/users/${params.user_id}`}
+        />
+        <UserTaskForm onSubmit={handleUpdateUserTask} task={userTask} visible />
+      </div>
+    )
   );
 }

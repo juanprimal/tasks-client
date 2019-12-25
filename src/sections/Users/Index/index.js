@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { getUsers, createUser, deleteUser } from "api/usersApi";
 import IndexView from "./indexView";
 
 export default function UsersIndex() {
   const [users, setUsers] = useState([]);
+  const [formVisible, setFormVisible] = useState(false);
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -31,11 +32,17 @@ export default function UsersIndex() {
     return response;
   };
 
+  const handleVisible = useCallback(() => {
+    setFormVisible(!formVisible);
+  }, [formVisible]);
+
   return (
     <IndexView
       users={users}
       onSubmit={handleCreateUser}
       onDelete={handleDeleteUser}
+      formVisible={formVisible}
+      handleVisible={handleVisible}
     />
   );
 }

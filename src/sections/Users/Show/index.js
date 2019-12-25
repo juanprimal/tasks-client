@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { getUser } from "api/usersApi";
 import { getUserTasks, createUserTask, deleteUserTask } from "api/userTasksApi";
 import { useParams } from "react-router-dom";
@@ -8,6 +8,7 @@ export default function UsersShow() {
   const params = useParams();
   const [user, setUser] = useState(null);
   const [userTasks, setUserTasks] = useState([]);
+  const [formVisible, setFormVisible] = useState(false);
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -44,6 +45,10 @@ export default function UsersShow() {
     return response;
   };
 
+  const handleVisible = useCallback(() => {
+    setFormVisible(!formVisible);
+  }, [formVisible]);
+
   return (
     userTasks &&
     user && (
@@ -52,6 +57,8 @@ export default function UsersShow() {
         user={user}
         onSubmit={handleCreateUserTask}
         onDelete={handleDeleteUserTask}
+        formVisible={formVisible}
+        handleVisible={handleVisible}
       />
     )
   );

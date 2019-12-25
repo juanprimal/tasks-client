@@ -1,23 +1,39 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import Header from "components/Header";
 import UserForm from "components/UserForm";
+import ContentRow from "components/ContentRow";
 
-export default function IndexView({ users, onSubmit, onDelete }) {
+export default function IndexView({
+  users,
+  onSubmit,
+  onDelete,
+  formVisible,
+  handleVisible
+}) {
   function renderUsers(user, index) {
     return (
-      <div key={`${index}-${user.name}`}>
-        <Link to={`/users/${user.id}`}>{user.name}</Link>
-        <Link to={`/users/${user.id}/edit`}>Edit</Link>
-        <button onClick={() => onDelete(user.id)}>Delete</button>
-      </div>
+      <ContentRow
+        key={`${index}-${user.name}`}
+        title={user.name}
+        showLink={`/users/${user.id}`}
+        editLink={`/users/${user.id}/edit`}
+        onClick={() => onDelete(user.id)}
+        showButton
+      />
     );
   }
 
   return (
     <>
+      <Header title="Task Manager" />
       {users.map(renderUsers)}
-      <UserForm onSubmit={onSubmit} />
+      <UserForm
+        onSubmit={onSubmit}
+        visible={formVisible}
+        setVisible={handleVisible}
+      />
     </>
   );
 }
@@ -25,5 +41,7 @@ export default function IndexView({ users, onSubmit, onDelete }) {
 IndexView.propTypes = {
   users: PropTypes.array,
   onSubmit: PropTypes.func,
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func,
+  formVisible: PropTypes.bool,
+  handleVisible: PropTypes.func
 };

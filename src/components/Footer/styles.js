@@ -2,9 +2,10 @@ import { createUseStyles } from "react-jss";
 
 const HeaderStyles = createUseStyles({
   container: {
-    padding: "12px",
+    padding: "10px",
     textAlign: "center",
-    borderTop: "1px solid #ccc"
+    borderTop: "1px solid #eee",
+    fontSize: "12px"
   }
 });
 

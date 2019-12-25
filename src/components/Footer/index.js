@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <div className={classes.container}>
-      <p>footer</p>
+      <p>{`React App With Hooks`}</p>
     </div>
   );
 }

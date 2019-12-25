@@ -1,4 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React front end client tasks app
+
+This is a small client app built to consume an API and manage Users and Tasks for each user with CRUD functionality.
+
+## Requirements
+
+[Node](https://nodejs.org/), [Git](https://git-scm.com/), [Yarn](https://yarnpkg.com/)
+
+## Installation
+
+Clone this repository
+
+```bash
+git clone git@github.com:juanprimal/tasks-client.git
+```
+
+Enter in the directory created
+
+```bash
+cd tasks-client
+```
+
+Install the dependencies with Yarn
+
+```bash
+yarn install
+```
+
+Once finished the installation process, run the server
+
+```bash
+yarn start
+```
+
+Now the server should be running and listening in the port 3000
+
+```bash
+http://localhost:3000
+```
+
+Make sure that the API client is listening in the port 3001, or change the environment variable to use a different URL for the API server.
+
+Create a .env file in the root folder of the project
+
+```bash
+touch .env
+```
+
+And add the ENV variable inside this file
+
+```bash
+REACT_APP_API_URL=http://yourapiserver:port
+```
+
+Then restart the app and launch again to make sure the ENV variable is loaded
+
+## Running Specs
+
+You can run the tests with the next command
+
+```bash
+yarn test
+```
 
 ## Available Scripts
 
@@ -6,23 +68,23 @@ In the project directory, you can run:
 
 ### `yarn start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
+Launches the test runner in the interactive watch mode.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
+Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
+The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
@@ -33,36 +95,16 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Contributing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Learn More
+Please make sure to update the tests as appropriate.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Thanks
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For spending some time reading this file
 
-### Code Splitting
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[MIT](https://choosealicense.com/licenses/mit/)

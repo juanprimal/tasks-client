@@ -21,9 +21,9 @@ export default function UserTaskForm({
       {visible && (
         <div className={classes.formContainer}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <label for="name">Name:</label>
+            <label>Name:</label>
             <input name="description" type="text" ref={register} />
-            <label for="state">Done:</label>
+            <label>Done:</label>
             <input type="checkbox" name="state" ref={register} />
             <div className={classes.controls}>
               <button type="submit" className={classes.submitButton}>

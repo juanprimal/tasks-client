@@ -23,8 +23,7 @@ function App() {
           <Col md={6}>
             <Layout>
               <Header title="Task Manager" />
-              <Link to={"/users"}>All</Link>
-              <Link to={"/users/new"}>New</Link>
+              <Link to={"/users"}>Home</Link>
               <div>
                 <AppRoutes />
               </div>

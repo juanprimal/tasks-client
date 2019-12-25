@@ -7,7 +7,7 @@ export default function IndexView({ users, onSubmit, onDelete }) {
   function renderUsers(user, index) {
     return (
       <div key={`${index}-${user.name}`}>
-        {user.name}
+        <Link to={`/users/${user.id}`}>{user.name}</Link>
         <Link to={`/users/${user.id}/edit`}>Edit</Link>
         <button onClick={() => onDelete(user.id)}>Delete</button>
       </div>
@@ -16,8 +16,8 @@ export default function IndexView({ users, onSubmit, onDelete }) {
 
   return (
     <>
-      <UserForm onSubmit={onSubmit} />
       {users.map(renderUsers)}
+      <UserForm onSubmit={onSubmit} />
     </>
   );
 }

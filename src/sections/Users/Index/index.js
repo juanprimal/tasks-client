@@ -8,16 +8,15 @@ export default function UsersIndex() {
   useEffect(() => {
     const fetchResults = async () => {
       const response = await getUsers();
-      console.log(response.data);
       setUsers(response.data);
     };
     fetchResults();
   }, []);
 
-  const handleCreateUser = async (user, otro) => {
+  const handleCreateUser = async (user, form) => {
     const response = await createUser(user);
-    console.log(otro);
-    otro.target.name.value = "";
+    // clean form inputs
+    form.target.name.value = "";
     setUsers([...users, response.data]);
     return response;
   };
